@@ -12,10 +12,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-def help_string() as DeepFrozen:
-    traceln("Welcome to the Holy Grail of Monte!")
-    traceln("\nHere are a few commands that can be used:")
-    traceln("\n\n\t\thelp\t Show this help text")
+def EXIT_SUCCESS :DeepFrozen := 0
+def EXIT_ERROR :DeepFrozen := 1
 
-def main() as DeepFrozen:
-    help_string()
+
+
+
+def help_string() as DeepFrozen:
+    traceln("grail <command>\n\n")
+    traceln("Welcome to the Holy Grail of Monte!")
+    traceln("Here are a few commands that can be used:\n\n")
+    traceln("\t\thelp [command]\tShow this help text or the help of a command")
+
+
+def main(argv) as DeepFrozen:
+    # Check that a command was given, provide help string if not
+    if (argv.size() >= 1):
+        help_string()
+        EXIT_ERROR
+  
+    # The command to run is...
+    def command := argv.get(0)
+  
+    switch (command):
+        match =="help":
+            help_string()
+            EXIT_SUCCESS
+        match _:
+            help_string()
+            EXIT_ERROR
