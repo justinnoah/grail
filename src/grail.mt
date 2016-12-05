@@ -24,7 +24,7 @@ def version_number():
 def help_string(name :Str) as DeepFrozen:
     if (!name):
         traceln("grail <command>\n")
-        traceln("Welcome to the Holy Grail of Monte!")
+        traceln("Welcome to Monte's Holy Grail!")
         traceln("Here are the available commands:\n")
         traceln("\t\thelp [command]\tShow this help text or the help of a command")
         traceln("\t\tnew <project name>\tCreate a new Monte project")
