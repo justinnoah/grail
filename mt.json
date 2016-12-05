@@ -1,7 +1,7 @@
 {
   "name": "grail",
   "paths": ["."],
-  "entrypoint": "grail",
+  "entrypoint": "src/grail",
   "version": "0.0.1",
   "dependencies": {}
 }
