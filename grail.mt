@@ -21,13 +21,16 @@ def version_number():
     return "0.0.1"
 
 
-def help_string() as DeepFrozen:
-    traceln("grail <command>\n\n")
-    traceln("Welcome to the Holy Grail of Monte!")
-    traceln("Here are a few commands that can be used:\n\n")
-    traceln("\t\thelp [command]\tShow this help text or the help of a command")
-    traceln("\t\tnew <project name>\tCreate a new Monte project")
-    traceln("\t\tversion\t Display Grail's version number")
+def help_string(name :Str) as DeepFrozen:
+    if (!name):
+        traceln("grail <command>\n\n")
+        traceln("Welcome to the Holy Grail of Monte!")
+        traceln("Here are a few commands that can be used:\n\n")
+        traceln("\t\thelp [command]\tShow this help text or the help of a command")
+        traceln("\t\tnew <project name>\tCreate a new Monte project")
+        traceln("\t\tversion\t Display Grail's version number")
+    else:
+        traceln("Command specific help text coming soon")
 
 
 def main(argv) as DeepFrozen:
@@ -39,10 +42,15 @@ def main(argv) as DeepFrozen:
     def command := argv.get(0)
     switch (command):
         match =="help":
-            help_string()
+            if (argv.size() == 1):
+                help_string()
+            else:
+                help_string(argv.get(1))
         match =="new":
             if (argv.size() >= 2):
                 new_project(argv.get(1))
+            else:
+                help_string("new")
         match =="version":
             version_number()
         match _:
