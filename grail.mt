@@ -12,10 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-def EXIT_SUCCESS :DeepFrozen := 0
-def EXIT_ERROR :DeepFrozen := 1
+
+def new_project(name):
+    return "Creating a new project!"
 
 
+def version_number():
+    return "0.0.1"
 
 
 def help_string() as DeepFrozen:
@@ -23,21 +26,24 @@ def help_string() as DeepFrozen:
     traceln("Welcome to the Holy Grail of Monte!")
     traceln("Here are a few commands that can be used:\n\n")
     traceln("\t\thelp [command]\tShow this help text or the help of a command")
+    traceln("\t\tnew <project name>\tCreate a new Monte project")
+    traceln("\t\tversion\t Display Grail's version number")
 
 
 def main(argv) as DeepFrozen:
     # Check that a command was given, provide help string if not
     if (argv.size() >= 1):
         help_string()
-        EXIT_ERROR
-  
+
     # The command to run is...
     def command := argv.get(0)
-  
     switch (command):
         match =="help":
             help_string()
-            EXIT_SUCCESS
+        match =="new":
+            if (argv.size() >= 2):
+                new_project(argv.get(1))
+        match =="version":
+            version_number()
         match _:
             help_string()
-            EXIT_ERROR
