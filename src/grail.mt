@@ -11,7 +11,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-import "src/new"  =~ [=> new_project]
+import "src/create"  =~ [=> new_project :DeepFrozen]
+exports (main)
 
 
 def version_number() as DeepFrozen:
