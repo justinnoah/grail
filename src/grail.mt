@@ -15,8 +15,8 @@ import "src/create"  =~ [=> new_project :DeepFrozen]
 exports (main)
 
 
-def version_number() as DeepFrozen:
-    return "0.0.1"
+def grail_version() as DeepFrozen:
+    return "Grail v0.0.1"
 
 
 def help_string(name :Str) as DeepFrozen:
@@ -50,6 +50,6 @@ def main(argv) as DeepFrozen:
             else:
                 help_string("new")
         match =="version":
-            version_number()
+            grail_version()
         match _:
             help_string()
