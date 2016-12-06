@@ -31,7 +31,7 @@ def help_string(name :Str) as DeepFrozen:
         traceln("Command specific help text coming soon")
 
 
-def main(argv) as DeepFrozen:
+def main(argv, => makeFileResource) as DeepFrozen:
     # Check that a command was given, provide help string if not
     if (argv.size() >= 1):
         help_string()
@@ -46,7 +46,7 @@ def main(argv) as DeepFrozen:
                 help_string(argv.get(1))
         match =="new":
             if (argv.size() >= 2):
-                new_project(argv.get(1))
+                new_project(argv.get(1), makeFileResource)
             else:
                 help_string("new")
         match =="version":
