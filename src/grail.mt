@@ -11,13 +11,10 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import "src/new"  =~ [=> new_project]
 
 
-def new_project(name):
-    return "Creating a new project!"
-
-
-def version_number():
+def version_number() as DeepFrozen:
     return "0.0.1"
 
 
