@@ -11,7 +11,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import "lib/json" =~ [=> JSON :DeepFrozen]
 exports (new_project)
+
+
+def makeMtJSON(=> name :Str) :Str as DeepFrozen:
+    def j := [
+        "name" => name,
+        "paths" => ["."],
+        "entrypoint" => "$name.mt",
+        "dependencies" => {}
+    ]
+    JSON.encode(j)
 
 
 def new_project(name :Str) as DeepFrozen:
