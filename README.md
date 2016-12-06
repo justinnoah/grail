@@ -1,5 +1,5 @@
 # Grail
-Swiss Army Knife tool for developing projects in Monte
+Holy Grail for developing projects in Monte
 
 ```
 grail <command>
