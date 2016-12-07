@@ -33,7 +33,7 @@ def help_string(name :Str) as DeepFrozen:
 
 def main(argv, => makeFileResource) as DeepFrozen:
     # Check that a command was given, provide help string if not
-    if (argv.size() >= 1):
+    if (argv.size() <= 1):
         help_string()
 
     # The command to run is...
