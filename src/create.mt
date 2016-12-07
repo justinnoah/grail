@@ -20,7 +20,7 @@ def makeMtJSON(name :Str) :Str as DeepFrozen:
         "name" => name,
         "paths" => ["."],
         "entrypoint" => `$name.mt`,
-        "dependencies" => {[]}
+        "dependencies" => [].asMap()
     ]
     return JSON.encode(j, null)
 
@@ -30,5 +30,5 @@ def new_project(name :Str, makeFileResource) as DeepFrozen:
     # Create project folder - Waiting on Typhon support
     def project_json := makeMtJSON(name)
     # Save mt.json
-    makeFileResource(`mt.json`).setContents(project_json)
-    makeFileResource(`$name.mt`)
+    makeFileResource(`mt.json`)<-setContents(b`$project_json`)
+    makeFileResource(`$name.mt`)<-setContents(b``)
