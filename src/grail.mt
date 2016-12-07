@@ -35,14 +35,15 @@ def main(argv, => makeFileResource) as DeepFrozen:
     # Check that a command was given, provide help string if not
     traceln(M.toString(argv.size()))
     if (argv.size() <= 0):
-        help_string()
+        help_string("")
+        return
 
     # The command to run is...
     def command := argv.get(0)
     switch (command):
         match =="help":
             if (argv.size() == 1):
-                help_string()
+                help_string("")
             else:
                 help_string(argv.get(1))
         match =="new":
@@ -53,4 +54,4 @@ def main(argv, => makeFileResource) as DeepFrozen:
         match =="version":
             grail_version()
         match _:
-            help_string()
+            help_string("")
