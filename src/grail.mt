@@ -20,7 +20,7 @@ def grail_version() as DeepFrozen:
 
 
 def help_string(name :Str) as DeepFrozen:
-    if (name.size() == 0):
+    if (name == ""):
         traceln("grail <command>\n")
         traceln("Welcome to Monte's Holy Grail!")
         traceln("Here are the available commands:\n")
