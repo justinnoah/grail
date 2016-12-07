@@ -16,7 +16,7 @@ exports (main)
 
 
 def grail_version() as DeepFrozen:
-    return "Grail v0.0.1"
+    traceln("Grail v0.0.1")
 
 
 def help_string(name :Str) as DeepFrozen:
