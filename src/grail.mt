@@ -11,17 +11,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-import "src/create"  =~ [=> new_project :DeepFrozen]
+import "src/create" =~ [=> new_project :DeepFrozen]
 exports (main)
 
 
 def build_project(makeProcess) as DeepFrozen:
     # Shell out and do some stuffs
     traceln("Building Project")
-    var builder := makeProcess(b`/home/sophos/bin/monte`, [b`build`], [].asMap())
+    var builder := makeProcess(b`monte`, [b`build`], [].asMap())
     traceln("Completed Building Project")
-    traceln(builder)
-    traceln(builder.getEnvironment())
 
 
 def grail_version() as DeepFrozen:
@@ -40,7 +38,7 @@ def help_string(name :Str) as DeepFrozen:
         traceln("Command specific help text coming soon")
 
 
-def main(argv, => makeFileResource) as DeepFrozen:
+def main(argv, => makeFileResource, => makeProcess) as DeepFrozen:
     # Check that a command was given, provide help string if not
     traceln(M.toString(argv.size()))
     if (argv.size() <= 0):
