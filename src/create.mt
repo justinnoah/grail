@@ -31,4 +31,4 @@ def new_project(name :Str, makeFileResource) as DeepFrozen:
     def project_json := makeMtJSON(name)
     # Save mt.json
     makeFileResource(`mt.json`)<-setContents(b`$project_json`)
-    makeFileResource(`$name.mt`)<-setContents(b``)
+    makeFileResource(`$name.mt`)<-setContents(b`''`)
