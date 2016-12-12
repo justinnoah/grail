@@ -1,11 +1,11 @@
 # mt.json Guide
---------------
+
 #### Specification Version: **0.0.0**
 
 ## Checked Keys
----------------
 
-**Note:** Version is a [semver](http://semver.org/) version number
+
+**Note:** Version is a [semver](http://semver.org/) defined version number
 
 ```json
 {
