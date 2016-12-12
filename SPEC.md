@@ -2,8 +2,7 @@
 
 #### Specification Version: **0.0.0**
 
-## Checked Keys
-
+## Complete Example - All parsed keys shown
 
 **Note:** Version is a [semver](http://semver.org/) defined version number
 
