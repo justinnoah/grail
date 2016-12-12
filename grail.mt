@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import "lib/create" =~ [=> newProject :DeepFrozen]
-import "lib/monover" =~ [=> makeMonoVer]
+import "lib/monover" =~ [=> makeMonoVer :DeepFrozen]
 exports (main)
 
 
@@ -27,8 +27,8 @@ def grail_version() as DeepFrozen:
     traceln("Grail v0.0.1")
 
 
-def help_string(name :Str) as DeepFrozen:
-    if (name == ""):
+def help_string(command :Str) as DeepFrozen:
+    if (command == ""):
         traceln("grail <command>\n")
         traceln("Welcome to Monte's Holy Grail!")
         traceln("Here are the available commands:\n")
