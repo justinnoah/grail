@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import "lib/json" =~ [=> JSON :DeepFrozen]
-exports (new_project)
+exports (newProject)
 
 
 def makeMtJSON(name :Str) :Str as DeepFrozen:
@@ -25,7 +25,7 @@ def makeMtJSON(name :Str) :Str as DeepFrozen:
     return JSON.encode(j, null)
 
 
-def new_project(name :Str, makeFileResource) as DeepFrozen:
+def newProject(name :Str, makeFileResource) as DeepFrozen:
     traceln(`Creating project $name`)
     # Create project folder - Waiting on Typhon support
     def project_json := makeMtJSON(name)

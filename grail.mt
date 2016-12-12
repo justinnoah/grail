@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-import "src/create" =~ [=> new_project :DeepFrozen]
+import "lib/create" =~ [=> newProject :DeepFrozen]
 exports (main)
 
 
@@ -55,7 +55,7 @@ def main(argv, => makeFileResource, => makeProcess) as DeepFrozen:
                 help_string(argv.get(1))
         match =="new":
             if (argv.size() >= 2):
-                new_project(argv.get(1), makeFileResource)
+                newProject(argv.get(1), makeFileResource)
             else:
                 help_string("new")
         match =="build":
