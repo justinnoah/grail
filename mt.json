@@ -2,8 +2,8 @@
   "authors": ["Justin Noah <justinnoah@gmail.com>"],
   "name": "grail",
   "version": "0.0.1",
-  "paths": [".", "./src"],
+  "paths": [".", "./lib"],
   "repository": "https://github.com/justinnoah/grail",
-  "entrypoint": "src/grail",
+  "entrypoint": "./grail",
   "dependencies": {}
 }
