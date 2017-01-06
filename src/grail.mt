@@ -15,7 +15,7 @@ import "src/create" =~ [=> new_project :DeepFrozen]
 exports (main)
 
 
-def build_project(makeProcess) as DeepFrozen:
+def build_project(=> makeProcess) as DeepFrozen:
     # Shell out and do some stuffs
     traceln("Building Project")
     var builder := makeProcess(b`monte`, [b`build`], [].asMap())
@@ -55,11 +55,11 @@ def main(argv, => makeFileResource, => makeProcess) as DeepFrozen:
                 help_string(argv.get(1))
         match =="new":
             if (argv.size() >= 2):
-                new_project(argv.get(1), makeFileResource)
+                new_project(argv.get(1), => makeFileResource, => makeProcess)
             else:
                 help_string("new")
         match =="build":
-            build_project(makeProcess)
+            build_project(=> makeProcess)
         match =="version":
             grail_version()
         match _:
