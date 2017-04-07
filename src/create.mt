@@ -18,23 +18,26 @@ exports (new_project)
 def makeMtJSON(name :Str) :Str as DeepFrozen:
     def j := [
         "name" => name,
-        "paths" => ["."],
-        "entrypoint" => `$name.mt`,
+        "paths" => [".", "./src"],
+        "entrypoint" => `src/$name.mt`,
         "dependencies" => [].asMap()
     ]
     return JSON.encode(j, null)
+
 
 def new_project(name :Str, => makeFileResource, => makeProcess) as DeepFrozen:
     traceln(`Creating project $name`)
     # Create project folder - Waiting on Typhon support
     def project_json := makeMtJSON(name)
-    # makeProcess for mkdir...
-    var mkdir := makeProcess(b`mkdir`, [b` $name`], [].asMap())
-    def result := mkdir.wait()
 
-    when (result) ->
-        traceln(b`mkdir results: $result`)
+    # makeProcess for mkdir...
+    var mkdir := makeProcess(b`mkdir`, [b`-p`, b` $name/src`], [].asMap())
+    def mkdir_result := mkdir.wait()
+    when (mkdir_result) ->
+        traceln(b`mkdir results: $mkdir_result`)
         # save json create project file
         makeFileResource(`$name/mt.json`)<-setContents(b`$project_json`)
-        makeFileResource(`$name/$name.mt`)<-setContents(
-            b`'def main() as DeepFrozen:$\n    traceln(``Hello World!``)'`)
+        makeFileResource(`$name/LICENSE`)<-setContents(b``)
+        makeFileResource(`$name/README`)<-setContents(b``)
+        makeFileResource(`$name/src/$name.mt`)<-setContents(
+            b`'def main(argv) as DeepFrozen:$\n    traceln(``Hello, $name!``)'`)
